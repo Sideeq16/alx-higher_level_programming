@@ -5,6 +5,6 @@ def uniq_add(mylist=[]):
     totalNum = 0
     for i in mylist:
         if i not in uniqNum:
-            totalNum +=i
+            totalNum += i
             uniqNum.append(i)
     return totalNum
