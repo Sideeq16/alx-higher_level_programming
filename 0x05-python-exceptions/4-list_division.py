@@ -8,7 +8,7 @@ def list_division(my_list_1, my_list_2, list_length):
             el_2 = my_list_2[i]
 
             if (not isinstance(el_1, (int, float)) or not
-            isinstance(el_2, (int, float))):
+               isinstance(el_2, (int, float))):
                 raise TypeError("wrong type")
             if el_2 == 0:
                 raise ZeroDivisionError("division by 0")
