@@ -50,7 +50,7 @@ class Square:
         """print out the sqare with # symbol"""
 
         if self.__size == 0:
-            print()
+                print()
         else:
             for i in range(self._size):
                 print("#"*self.__size)
