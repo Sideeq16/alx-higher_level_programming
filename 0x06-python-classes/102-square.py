@@ -47,7 +47,7 @@ class Square:
             self.__size = value
 
     def __eq__(self, other):
-        return self.__size == 2
+        return self.__size == other.area()
 
     def __ne__(self, other):
         return self.area() != other.area()
