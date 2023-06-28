@@ -18,6 +18,7 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
+            self.position = position
 
     def area(self):
         """return the square of the number given"""
