@@ -92,16 +92,19 @@ class Square:
     def __str__(self):
         """print put the symbol #"""
         if self.__size == 0:
-            print()
-            return
+
+            return ""
+        result = ""
 
         if self.__position[0] >= 0 and self.__position[1] >= 0:
             for no_pos in range(self.__position[1]):
-                print()
+                result += "\n"
 
         for r in range(self.__size):
             for spaces in range(self.__position[0]):
-                print(' ', end='')
+                result += " "
             for c in range(self.__size):
-                print('#', end='')
-            print()
+                result += "#"
+            result += "\n"
+
+        return result[:-1]
