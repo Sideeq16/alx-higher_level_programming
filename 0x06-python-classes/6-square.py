@@ -9,7 +9,7 @@ class Square:
         """ initialze a field of a square object
         Args:
             size (int): size of the square
-            position (tuple): postion    
+            position (tuple): postion
         """
 
         if type(size) is not int:
@@ -47,7 +47,7 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-    
+
     @property
     def position(self):
         """Returns the position of the square field"""
