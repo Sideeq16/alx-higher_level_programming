@@ -49,8 +49,8 @@ class Square:
     def my_print(self):
         """print out the sqare with # symbol"""
 
-        if self.__size == 0:
+        if self.__size <= 0:
             print()
         else:
-            for i in range(self._size - 1):
+            for i in range(self._size):
                 print("#"*self.__size)
