@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Documentation of a square class"""
+
 
 class Rectangle:
     """Find the size of a rectangle"""
