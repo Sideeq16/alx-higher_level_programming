@@ -2,5 +2,4 @@
 """Documentation of a Rectangle"""
 
 class Rectangle:
-    """Find the size of a rectangle"""
-    pass
+    """Class that define a rectangle"""
