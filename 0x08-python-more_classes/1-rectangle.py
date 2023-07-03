@@ -4,7 +4,7 @@
 
 class Rectangle:
     """Find the size of a rectangle"""
-    def __int__(self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
