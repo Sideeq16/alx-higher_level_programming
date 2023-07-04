@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import sys
+"""Documentation of a queen game"""
+
 
 def is_safe(board, row, col, n):
     # Check the left side of the current row
@@ -24,6 +26,7 @@ def is_safe(board, row, col, n):
         j -= 1
     return True
 
+
 def solve(board, col, n, solutions):
     # Base case: all columns are filled
     if col == n:
@@ -38,14 +41,17 @@ def solve(board, col, n, solutions):
     res = False
     for i in range(n):
         if is_safe(board, i, col, n):
-            board[i][col] = 1 # Place a queen
-            res = solve(board, col + 1, n, solutions) or res # Recur for next column
-            board[i][col] = 0 # Backtrack and remove the queen
+            board[i][col] = 1
+            res = solve(board, col + 1, n, solutions) or res
+            board[i][col] = 0
     return res
 
+
 def print_solutions(solutions):
+
     for solution in solutions:
         print(solution)
+
 
 if __name__ == "__main__":
     # Check the number of arguments
