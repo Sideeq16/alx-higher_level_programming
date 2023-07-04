@@ -1,74 +1,74 @@
 #!/usr/bin/python3
+
+import sys
 """Documentation of a square class"""
 
 
-class Rectangle:
-    """Find the size of a rectangle"""
-    number_of_instances = 0
-    print_symbol = '#'
+def is_safe(board, row, col, n):
+    # Check the left side of the current row
+    for i in range(col):
+        if board[row][i] == 1:
+            return False
+    # Check the upper left diagonal
+    i = row
+    j = col
+    while i >= 0 and j >= 0:
+        if board[i][j] == 1:
+            return False
+        i -= 1
+        j -= 1
+    # Check the lower left diagonal
+    i = row
+    j = col
+    while i < n and j >= 0:
+        if board[i][j] == 1:
+            return False
+        i += 1
+        j -= 1
+    return True
 
-    def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
-        Rectangle.number_of_instances += 1
+def solve(board, col, n, solutions):
+    # Base case: all columns are filled
+    if col == n:
+        solution = []
+        for i in range(n):
+            for j in range(n):
+                if board[i][j] == 1:
+                    solution.append([i, j])
+        solutions.append(solution)
+        return True
+    # Recursive case: try placing a queen in each row of the current column
+    res = False
+    for i in range(n):
+        if is_safe(board, i, col, n):
+            board[i][col] = 1 # Place a queen
+            res = solve(board, col + 1, n, solutions) or res # Recur for next column
+            board[i][col] = 0 # Backtrack and remove the queen
+    return res
 
-    @property
-    def width(self):
-        return self.__width
+def print_solutions(solutions):
+    for solution in solutions:
+        print(solution)
 
-    @width.setter
-    def width(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
-
-    @property
-    def height(self):
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
-
-    def area(self):
-        return self.width * self.height
-
-    def perimeter(self):
-        if self.width == 0 or self.height == 0:
-            return 0
-        return (self.width + self.height) * 2
-
-    def __str__(self):
-        if self.width == 0 or self.height == 0:
-            return ""
-        rectangle_str = ""
-        for _ in range(self.height):
-            rectangle_str += str(self.print_symbol) * self.width + "\n"
-        return rectangle_str.rstrip()
-
-    def __repr__(self):
-        return f"Rectangle({self.width}, {self.height})"
-
-    def __del__(self):
-        Rectangle.number_of_instances -= 1
-        print("Bye rectangle...")
-
-    def bigger_or_equal(rect_1, rect_2):
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() >= rect_2.area():
-            return rect_1
-        else:
-            return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        return cls(size, size)
+if __name__ == "__main__":
+    # Check the number of arguments
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    # Check if N is an integer
+    try:
+        n = int(sys.argv[1])
+    except ValueError:
+        print("N must be a number")
+        sys.exit(1)
+    # Check if N is at least 4
+    if n < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+    # Initialize an empty board
+    board = [[0 for i in range(n)] for j in range(n)]
+    # Initialize an empty list of solutions
+    solutions = []
+    # Solve the problem and print the solutions
+    solve(board, 0, n, solutions)
+    print_solutions(solutions)
