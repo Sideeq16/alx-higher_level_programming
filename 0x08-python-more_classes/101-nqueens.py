@@ -74,4 +74,5 @@ if __name__ == "__main__":
     solutions = []
     # Solve the problem and print the solutions
     solve(board, 0, n, solutions)
+    solutions = sorted(solutions)
     print_solutions(solutions)
