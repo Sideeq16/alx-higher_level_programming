@@ -3,7 +3,7 @@
 
 
 def max_integer(list=[]):
-    """Function to find and return the max integer in a list of integers     
+    """Function to find and return the max integer in a list of integers
     """
     if len(list) == 0:
         return None
