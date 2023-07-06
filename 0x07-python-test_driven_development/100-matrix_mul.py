@@ -3,7 +3,7 @@
 
 
 def matrix_mul(m_a, m_b):
-    # Validate m_a and m_b
+    """Documentation for the function matrix_mul"""
     if not isinstance(m_a, list) or not isinstance(m_b, list):
         raise TypeError("m_a must be a list and m_b must be a list")
 
