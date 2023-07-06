@@ -17,7 +17,7 @@ floats")
         raise TypeError("matrix must be a matrix (list of lists) of integers/\
 floats")
     if type(matrix) == tuple or type(matrix) == set:
-            raise TypeError("matrix must be a matrix (list of lists) of \
+        raise TypeError("matrix must be a matrix (list of lists) of \
 integers/floats")
     for i in matrix:
         if len(i) == 0:
