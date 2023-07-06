@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import numpy as np
 """Documentation for lazy_matrix_mul"""
 
